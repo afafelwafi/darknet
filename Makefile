@@ -1,6 +1,6 @@
-GPU=0
+GPU=1
 CUDNN=0
-OPENCV=0
+OPENCV=
 OPENMP=0
 DEBUG=0
 
@@ -13,7 +13,6 @@ DEBUG=0
 
 # Tesla K80 
 ARCH= -gencode arch=compute_37,code=[sm_37]
-
 VPATH=./src/:./examples
 SLIB=libdarknet.so
 ALIB=libdarknet.a
@@ -23,6 +22,7 @@ OBJDIR=./obj/
 CC=gcc
 CPP=g++
 NVCC=nvcc 
+NVCC += -D_FORCE_INLINES
 AR=ar
 ARFLAGS=rcs
 OPTS=-Ofast
